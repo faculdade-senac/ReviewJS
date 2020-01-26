@@ -30,6 +30,7 @@ function getAll(carrinho){
         document.getElementById("all_items").innerHTML = value;
         document.getElementById("total").innerHTML = "<h1>TOTAL: "+formatValue(getTotal())+"</h1>";
     }
+    saveListStorage(carrinho);
 }
 
 function formatName(name){
@@ -166,4 +167,17 @@ function getTotal(){
     return sum;
 }
 
-getAll(carrinho);
+function saveListStorage(carrinho){
+    let jsonstring = JSON.stringify(carrinho);
+    localStorage.setItem("carrinho", jsonstring);
+}
+function initListStorage(){
+    let testList = localStorage.getItem("carrinho");
+    if(testList){
+        carrinho = JSON.parse(testList);
+    }
+    getAll();
+}
+
+//getAll(carrinho);
+initListStorage();
