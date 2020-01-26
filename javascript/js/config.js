@@ -1,6 +1,6 @@
 function setConfig(){
     let texts = {
-        "title":"Boteco do Gladimir - Lista de Compras"
+        "title":"Gladimir - Lista de Compras"
 
     };
 

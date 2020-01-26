@@ -9,6 +9,13 @@ let carrinho = [
 let selectedId = 0;
 
 function getAll(carrinho){
+    if(carrinho.length == 0){
+        document.getElementById('all_items').style.display = "none";
+        document.getElementById('total').style.display = "none";
+        getTotal();
+    }else{
+        document.getElementById('all_items').style.display = "table";
+        document.getElementById('total').style.display = "table";
     let value = "";
     let cont = 0;
     value +='<thead><tr><th scope="col">Nome</th><th scope="col">Quantidade</th><th scope="col">Valor</th><th scope="col">Ações</th></tr></thead><tbody>';
@@ -19,9 +26,10 @@ function getAll(carrinho){
     });
     value+='</tbody>';
     //console.log(value);
-    document.getElementById("all_items").innerHTML = value;
-    document.getElementById("total").innerHTML = "<h1>TOTAL: "+formatValue(getTotal())+"</h1>";
     
+        document.getElementById("all_items").innerHTML = value;
+        document.getElementById("total").innerHTML = "<h1>TOTAL: "+formatValue(getTotal())+"</h1>";
+    }
 }
 
 function formatName(name){
@@ -44,6 +52,12 @@ if(!validation()){
     
     getAll(carrinho);
 
+}
+function removeAll(){
+    if(confirm("Excluir TODA a sua lista de compras?")){
+        carrinho = [];
+        getAll(carrinho);
+    }
 }
 
 function formatValue(number){
@@ -96,7 +110,7 @@ function editProduct(product){
     document.getElementById("amount").value = obj.amount;
     document.getElementById("price").value = obj.price;
     document.getElementById('btnUpdate').style.display = 'inline-block';
-    document.getElementById('btnAdd').style.display = 'none';
+    document.getElementById('spanInsert').style.display = 'none';
 
     document.getElementById('inputIDUpdate').innerHTML = '<input id="idUpdate" type="hidden" value='+product+'>';
 }
@@ -105,7 +119,7 @@ function resetForm(){
     document.getElementById("name").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("price").value = "";
-    document.getElementById('btnAdd').style.display = 'inline-block';
+    document.getElementById('spanInsert').style.display = 'inline-block';
     document.getElementById('btnUpdate').style.display = 'none';
 
     document.getElementById('inputIDUpdate').innerHTML = "";
@@ -138,7 +152,7 @@ function removeProduct(id){
             carrinho = auxParte1.concat(auxParte2);
 
         }
-        
+        resetForm();
         getAll(carrinho);
 
     }
