@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Javascript Orientado a Objetos</p>
+    <script>
+        function Client(_name, _cpf){
+            let name = _name;
+            let cpf = _cpf;
+            let phone;
+
+            this.getName = function(){
+                return name;
+            }
+            this.setName = function(_name){
+                name = _name;
+            }
+        }
+        function ClientVIP(_name, _cpf, _points){
+            let points = _points;
+
+            Client.call(this, _name, _cpf);
+
+            this.getPoints = function(){
+                return points;
+            }
+        }
+        // Explicitando que o ClientVIP é um Client
+        ClientVIP.prototype = Object.create(Client.prototype)
+        let p = new ClientVIP("Angelo Luz", "014.045.510.40", 2000);
+        console.log(p.getName())
+        console.log(p.getPoints());
+    </script>
+</body>
+</html>
