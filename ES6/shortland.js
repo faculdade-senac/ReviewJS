@@ -9,9 +9,9 @@ const product = {
   buyPrice,
   description,
 };
-
-function doNothing(object) {
-  return `PRODUTO: ${object.name} - ${object.description}`;
+// Queremos apenas o nome a descrição deste
+function doNothing({ name, description }) {
+  return `PRODUTO: ${name} - ${description}`;
 }
 
 console.log(doNothing(product));
