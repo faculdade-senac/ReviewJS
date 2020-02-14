@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 const name = 'Bavaria';
 const sellPrice = 4.00;
 const buyPrice = 2.50;

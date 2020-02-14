@@ -1,3 +1,6 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 function funcao(param1, param2, ...others) {
   console.log(others);
 }
@@ -14,7 +17,7 @@ const string = 'Faculdade Senac';
 const partes = [...string];
 
 // Teste
-function x (m, ...values) {
+function x(m, ...values) {
   return values.map((v) => m * v);
 }
 
