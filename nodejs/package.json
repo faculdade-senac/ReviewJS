@@ -11,5 +11,9 @@
     "senac"
   ],
   "author": "Angelo Luz",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "console-log-hello-world": "^1.0.3",
+    "request": "^2.88.2"
+  }
 }
