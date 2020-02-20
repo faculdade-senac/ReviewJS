@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    const socket = new WebSocket('ws://localhost:3000');
+    socket.onopen = () => {
+      console.log('client open');
+      socket.send('Client open comunication');
+    }
+
+    socket.onmessage = (message) => {
+      console.log(message);
+    }
+
+    socket.onerror = () => {
+      console.error('socket error');
+    }
+</script>
